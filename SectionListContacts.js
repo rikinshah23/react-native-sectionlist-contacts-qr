@@ -144,6 +144,10 @@ export default class SectionListModule extends Component {
                                                 itemIndex: 0, sectionIndex: index,
                                                 viewOffset: 0
                                             })
+                                            // original value:
+                                            // this.sectionList.scrollToLocation({animated: this.props.scrollAnimation,
+                                            //   itemIndex: 0,sectionIndex: index,viewOffset: (this.props.sectionHeight * (index + 1)) + 
+                                            //   (this.props.sectionHeaderHeight * index)})                                            
                                         }}>
                                             <View style={[styles.letterItemView, otherStyle]}>
                                                 <Text numberOfLines={0} style={[styles.letterText, this.props.letterTextStyle]}>{item}</Text>
