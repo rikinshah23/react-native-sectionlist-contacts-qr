@@ -74,6 +74,7 @@ export default class SectionListModule extends Component {
         ]
         this.state = {
             dataArray: data,
+            pressedIndex: null
         }
     }
 
@@ -110,7 +111,8 @@ export default class SectionListModule extends Component {
         let filterData = this.filterData()
         let delData = filterData.delData
         let letterData = filterData.letterData
-
+        let pressedIndex;
+        console.log(filterData, delData, letterData)
         return (
             <View style={styles.container}>
                 <SectionList
@@ -143,14 +145,12 @@ export default class SectionListModule extends Component {
                                                 animated: this.props.scrollAnimation,
                                                 itemIndex: 0, sectionIndex: index,
                                                 viewOffset: 0
-                                            })
-                                            // original value:
-                                            // this.sectionList.scrollToLocation({animated: this.props.scrollAnimation,
-                                            //   itemIndex: 0,sectionIndex: index,viewOffset: (this.props.sectionHeight * (index + 1)) + 
-                                            //   (this.props.sectionHeaderHeight * index)})                                            
+                                            }, this.setState({ pressedIndex: index }))
                                         }}>
                                             <View style={[styles.letterItemView, otherStyle]}>
-                                                <Text numberOfLines={0} style={[styles.letterText, this.props.letterTextStyle]}>{item}</Text>
+                                                <Text numberOfLines={0} style={[styles.letterText, this.props.letterTextStyle,
+                                                { fontWeight: index === this.state.pressedIndex ? 'bold' : null,
+                                                fontSize: index === this.state.pressedIndex ? 22 : null }]}>{item}</Text>
                                             </View>
                                         </TouchableWithoutFeedback>
                                     )
