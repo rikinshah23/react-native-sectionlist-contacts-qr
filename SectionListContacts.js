@@ -112,7 +112,7 @@ export default class SectionListModule extends Component {
         let delData = filterData.delData
         let letterData = filterData.letterData
         let pressedIndex;
-        console.log(filterData, delData, letterData)
+        
         return (
             <View style={styles.container}>
                 <SectionList
